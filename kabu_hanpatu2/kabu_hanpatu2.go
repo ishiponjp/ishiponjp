@@ -75,11 +75,10 @@ func runBuySim(iSW string, iJyouken com.TJyouken, iKabukas []com.Vkabuka) (com.T
 				if wJyoukenLog.KaiGaku > 0 {
 					if iJyouken.KBN == "K" {
 						wJyoukenLog.Soneki = wJyoukenLog.HyokaGaku - wJyoukenLog.KaiGaku
-						wJyoukenLog.SonekiRitu = (wJyoukenLog.HyokaGaku/wJyoukenLog.KaiGaku - 1) * 100
 					} else {
 						wJyoukenLog.Soneki = wJyoukenLog.KaiGaku - wJyoukenLog.HyokaGaku
-						wJyoukenLog.SonekiRitu = (wJyoukenLog.KaiGaku/wJyoukenLog.HyokaGaku - 1) * 100
 					}
+					wJyoukenLog.SonekiRitu = (wJyoukenLog.Soneki/wJyoukenLog.KaiGaku) * 100
 				}
 				wJyoukenLog.KaiGakuGoukei = wJyoukenLog.Koza + wJyoukenLog.KaiGaku
 				wJyoukenLog.HyokaGakuGokei = wJyoukenLog.KaiGakuGoukei + wJyoukenLog.Soneki
@@ -156,11 +155,10 @@ func runBuySim(iSW string, iJyouken com.TJyouken, iKabukas []com.Vkabuka) (com.T
 			if wBaibaiKekka.KaiKabugaku > 0 {
 				if iJyouken.KBN == "K" {
 					wBaibaiKekka.Soneki = wBaibaiKekka.UriKabugaku - wBaibaiKekka.KaiKabugaku
-					wBaibaiKekka.SonekiRitu = (wBaibaiKekka.UriKabugaku/wBaibaiKekka.KaiKabugaku - 1) * 100
 				} else {
 					wBaibaiKekka.Soneki = wBaibaiKekka.KaiKabugaku - wBaibaiKekka.UriKabugaku
-					wBaibaiKekka.SonekiRitu = (wBaibaiKekka.KaiKabugaku/wBaibaiKekka.UriKabugaku - 1) * 100
 				}
+				wBaibaiKekka.SonekiRitu = (wBaibaiKekka.Soneki/wBaibaiKekka.KaiKabugaku ) * 100
 			}
 
 			wSelOk := true
@@ -323,11 +321,10 @@ func runBuySim(iSW string, iJyouken com.TJyouken, iKabukas []com.Vkabuka) (com.T
 					if wBaibaiKekka.KaiKabugaku > 0 {
 						if iJyouken.KBN == "K" {
 							wBaibaiKekka.Soneki = wBaibaiKekka.UriKabugaku - wBaibaiKekka.KaiKabugaku - wBaibaiKekka.TesuRyo - wBaibaiKekka.Kinri
-							wBaibaiKekka.SonekiRitu = (wBaibaiKekka.UriKabugaku/wBaibaiKekka.KaiKabugaku - 1) * 100
 						} else {
 							wBaibaiKekka.Soneki = wBaibaiKekka.KaiKabugaku - wBaibaiKekka.UriKabugaku - wBaibaiKekka.TesuRyo - wBaibaiKekka.Kinri
-							wBaibaiKekka.SonekiRitu = (wBaibaiKekka.KaiKabugaku/wBaibaiKekka.UriKabugaku - 1) * 100
 						}
+						wBaibaiKekka.SonekiRitu = (wBaibaiKekka.Soneki/wBaibaiKekka.KaiKabugaku ) * 100
 					}
 
 					wSimbaibaikekkaList = append(wSimbaibaikekkaList, wBaibaiKekka)
@@ -350,11 +347,11 @@ func runBuySim(iSW string, iJyouken com.TJyouken, iKabukas []com.Vkabuka) (com.T
 					wBaibaiKekka.MaxKabuka = wKabuka.TakaNeF1
 				}
 				if iJyouken.KBN == "K" {
-					wBaibaiKekka.MinKabukaRitu = (wBaibaiKekka.MinKabuka/wBaibaiKekka.KaiKabuka - 1) * 100
-					wBaibaiKekka.MaxKabukaRitu = (wBaibaiKekka.MaxKabuka/wBaibaiKekka.KaiKabuka - 1) * 100
+					wBaibaiKekka.MinKabukaRitu = ((wBaibaiKekka.MinKabuka - wBaibaiKekka.KaiKabuka)/wBaibaiKekka.KaiKabuka) * 100
+					wBaibaiKekka.MaxKabukaRitu = ((wBaibaiKekka.MaxKabuka - wBaibaiKekka.KaiKabuka)/wBaibaiKekka.KaiKabuka) * 100
 				} else {
-					wBaibaiKekka.MinKabukaRitu = (wBaibaiKekka.KaiKabuka/wBaibaiKekka.MinKabuka - 1) * 100
-					wBaibaiKekka.MaxKabukaRitu = (wBaibaiKekka.KaiKabuka/wBaibaiKekka.MaxKabuka - 1) * 100
+					wBaibaiKekka.MinKabukaRitu = ((wBaibaiKekka.KaiKabuka - wBaibaiKekka.MinKabuka)/wBaibaiKekka.KaiKabuka) * 100
+					wBaibaiKekka.MaxKabukaRitu = ((wBaibaiKekka.KaiKabuka - wBaibaiKekka.MaxKabuka)/wBaibaiKekka.KaiKabuka) * 100
 				}
 				wHoyu[wKabuka.MeigaraCd] = wBaibaiKekka
 			}
@@ -385,11 +382,11 @@ func runBuySim(iSW string, iJyouken com.TJyouken, iKabukas []com.Vkabuka) (com.T
 					wSimbaibaikekka.MaxKabuka = wKabuka.TakaNeF1
 
 					if iJyouken.KBN == "K" {
-						wSimbaibaikekka.MinKabukaRitu = (wSimbaibaikekka.MinKabuka/wSimbaibaikekka.KaiKabuka - 1) * 100
-						wSimbaibaikekka.MaxKabukaRitu = (wSimbaibaikekka.MaxKabuka/wSimbaibaikekka.KaiKabuka - 1) * 100
+						wSimbaibaikekka.MinKabukaRitu = ((wSimbaibaikekka.MinKabuka - wSimbaibaikekka.KaiKabuka)/wSimbaibaikekka.KaiKabuka) * 100
+						wSimbaibaikekka.MaxKabukaRitu = ((wSimbaibaikekka.MaxKabuka - wSimbaibaikekka.KaiKabuka)/wSimbaibaikekka.KaiKabuka) * 100
 					} else {
-						wSimbaibaikekka.MinKabukaRitu = (wSimbaibaikekka.KaiKabuka/wSimbaibaikekka.MinKabuka - 1) * 100
-						wSimbaibaikekka.MaxKabukaRitu = (wSimbaibaikekka.KaiKabuka/wSimbaibaikekka.MaxKabuka - 1) * 100
+						wSimbaibaikekka.MinKabukaRitu = ((wSimbaibaikekka.KaiKabuka - wSimbaibaikekka.MinKabuka)/wSimbaibaikekka.KaiKabuka) * 100
+						wSimbaibaikekka.MaxKabukaRitu = ((wSimbaibaikekka.KaiKabuka - wSimbaibaikekka.MaxKabuka)/wSimbaibaikekka.KaiKabuka) * 100
 					}
 
 					wSimbaibaikekka.NaninKoza = wNanpinGaku
@@ -419,11 +416,10 @@ func runBuySim(iSW string, iJyouken com.TJyouken, iKabukas []com.Vkabuka) (com.T
 		if wJyoukenLog.KaiGaku > 0 {
 			if iJyouken.KBN == "K" {
 				wJyoukenLog.Soneki = wJyoukenLog.HyokaGaku - wJyoukenLog.KaiGaku
-				wJyoukenLog.SonekiRitu = (wJyoukenLog.HyokaGaku/wJyoukenLog.KaiGaku - 1) * 100
 			} else {
 				wJyoukenLog.Soneki = wJyoukenLog.KaiGaku - wJyoukenLog.HyokaGaku
-				wJyoukenLog.SonekiRitu = (wJyoukenLog.KaiGaku/wJyoukenLog.HyokaGaku - 1) * 100
 			}
+			wJyoukenLog.SonekiRitu = (wJyoukenLog.Soneki/wJyoukenLog.KaiGaku) * 100
 			wJyoukenLog.KaiGakuGoukei = wJyoukenLog.Koza + wJyoukenLog.KaiGaku
 			wJyoukenLog.HyokaGakuGokei = wJyoukenLog.KaiGakuGoukei + wJyoukenLog.Soneki
 			wJyoukenLog.HoyuCnt = len(wHoyu)
