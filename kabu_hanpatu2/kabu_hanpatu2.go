@@ -431,7 +431,7 @@ func runBuySim(iSW string, iJyouken com.TJyouken, iKabukas []com.Vkabuka) (com.T
 		if wSimbaibaikekka.KaiKabugaku > 0 {
 			iJyouken.Cnt++
 			iJyouken.HoyuDayAvg += float64(wSimbaibaikekka.Day)
-			iJyouken.SonekiSum += wSimbaibaikekka.SonekiRitu
+			iJyouken.SonekiSum += wSimbaibaikekka.SonekiRitu * float64(wSimbaibaikekka.KaiKabusu / wSimbaibaikekka.KaiKabusu1) 
 			if wSimbaibaikekka.SonekiRitu > 0 {
 				iJyouken.SyoRitu += 100
 			}
