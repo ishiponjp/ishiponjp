@@ -7,6 +7,6 @@ require (
 	local.packeges/com v0.0.0-00010101000000-000000000000
 )
 
-require github.com/yut-kt/goholiday v0.1.9 // indirect
+require github.com/holiday-jp/holiday_jp-go v0.0.0-20220125203534-53124b4cc19c // indirect
 
 replace local.packeges/com => ../com

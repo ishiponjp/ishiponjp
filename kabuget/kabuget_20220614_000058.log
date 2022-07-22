@@ -1,0 +1,7 @@
+2022/06/14 00:00:58 kabuget.go:24: 処理開始
+2022/06/14 00:00:58 kabuget.go:37: DBStrring:kabu:kabukabu@tcp(localhost:3306)/kabu_test?parseTime=true&loc=Asia%!F(MISSING)Tokyo
+2022/06/14 00:00:58 kabuget.go:38: Honban:false
+2022/06/14 00:00:58 kabuget.go:39: Password:tkumi0312
+2022/06/14 00:00:58 kabuget.go:56: 取得日付:2022/06/13
+2022/06/14 00:00:58 kabuget.go:57: 取得日付NUM:5502
+2022/06/14 00:01:10 kabuget.go:95: 銘柄が見つからない

@@ -1,0 +1,6 @@
+2022/06/14 00:20:40 kabuget.go:23: 処理開始
+2022/06/14 00:20:40 kabuget.go:36: DBStrring:kabu:kabukabu@tcp(localhost:3306)/kabu_test?parseTime=true&loc=Asia%!F(MISSING)Tokyo
+2022/06/14 00:20:40 kabuget.go:37: Honban:true
+2022/06/14 00:20:40 kabuget.go:38: Password:tkumi0312
+2022/06/14 00:20:40 kabuget.go:55: 取得日付:2022/06/13
+2022/06/14 00:20:40 kabuget.go:56: 取得日付NUM:5502
